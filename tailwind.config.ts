@@ -1,11 +1,10 @@
 import type { Config } from "tailwindcss";
-import path from "path";
 
 export default {
   darkMode: ["class"],
   content: [
-    path.resolve(__dirname, "./client/index.html"),
-    path.resolve(__dirname, "./client/src/**/*.{js,jsx,ts,tsx}"),
+    "./client/index.html",
+    "./client/src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
