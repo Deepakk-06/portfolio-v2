@@ -58,8 +58,10 @@ export default function Home() {
         <div className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center justify-center w-[48%] pointer-events-none">
           <div className="relative w-[420px] h-[420px] flex items-center justify-center">
 
-            <div className="absolute inset-0 rounded-full bg-indigo-500/5 blur-2xl" />
+            {/* Outer glow — no blur, use radial gradient only */}
+            <div className="absolute inset-0 rounded-full" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%)" }} />
 
+            {/* Concentric rings */}
             {[100, 75, 50, 27].map((size, i) => (
               <div
                 key={i}
@@ -68,29 +70,27 @@ export default function Home() {
               />
             ))}
 
+            {/* Crosshair */}
             <div className="absolute w-full h-px bg-white/[0.04]" />
             <div className="absolute h-full w-px bg-white/[0.04]" />
 
-            {/* Radar sweep — smooth with willChange */}
+            {/* Radar sweep — only a line, no conic-gradient */}
             <motion.div
-              className="absolute inset-0"
+              className="absolute inset-0 rounded-full"
               animate={{ rotate: 360 }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              style={{ willChange: "transform" }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              style={{ willChange: "transform", translateZ: 0 }}
             >
               <div
-                className="absolute top-1/2 left-1/2 h-px w-[48%] -translate-y-1/2 origin-left"
-                style={{ background: "linear-gradient(to right, rgba(99,102,241,0.85), transparent)" }}
-              />
-              <div
-                className="absolute inset-0 rounded-full"
+                className="absolute top-1/2 left-1/2 h-px w-[50%] origin-left"
                 style={{
-                  background: "conic-gradient(from 0deg, rgba(99,102,241,0.13) 0deg, rgba(99,102,241,0.04) 40deg, transparent 80deg)",
+                  background: "linear-gradient(to right, rgba(99,102,241,1), rgba(99,102,241,0.3), transparent)",
+                  transform: "translateY(-50%)",
                 }}
               />
             </motion.div>
 
-            {/* Blip points — no animate-ping */}
+            {/* Blip points — static, no ping */}
             {[
               { top: "18%", left: "68%" },
               { top: "62%", left: "80%" },
@@ -100,12 +100,14 @@ export default function Home() {
               { top: "38%", left: "48%" },
             ].map((dot, i) => (
               <div key={i} className="absolute" style={{ top: dot.top, left: dot.left }}>
-                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400/80 shadow-[0_0_6px_2px_rgba(99,102,241,0.5)]" />
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400/80 shadow-[0_0_5px_2px_rgba(99,102,241,0.4)]" />
               </div>
             ))}
 
-            <div className="absolute w-2.5 h-2.5 rounded-full bg-indigo-400 z-10 shadow-[0_0_12px_4px_rgba(99,102,241,0.6)]" />
+            {/* Center dot */}
+            <div className="absolute w-2.5 h-2.5 rounded-full bg-indigo-400 z-10 shadow-[0_0_10px_3px_rgba(99,102,241,0.5)]" />
 
+            {/* Label */}
             <div className="absolute -bottom-10 left-0 right-0 text-center">
               <span className="text-[10px] font-mono text-white/15 uppercase tracking-[0.2em]">LiDAR · SLAM · Autonomy</span>
             </div>
@@ -121,17 +123,11 @@ export default function Home() {
             </span>
           </motion.div>
 
-          <motion.h1
-            {...appear(0.12)}
-            className="text-[clamp(56px,10vw,112px)] font-extrabold text-white tracking-[-0.04em] leading-[0.9] mb-7"
-          >
+          <motion.h1 {...appear(0.12)} className="text-[clamp(56px,10vw,112px)] font-extrabold text-white tracking-[-0.04em] leading-[0.9] mb-7">
             Deepak K
           </motion.h1>
 
-          <motion.div
-            {...appear(0.22)}
-            className="text-xl md:text-2xl font-medium text-white/30 mb-7 h-8 font-mono"
-          >
+          <motion.div {...appear(0.22)} className="text-xl md:text-2xl font-medium text-white/30 mb-7 h-8 font-mono">
             <Typewriter
               options={{
                 strings: ["Robotics", "Control Systems", "AI & Computer Vision", "EEE Student"],
@@ -143,10 +139,7 @@ export default function Home() {
             />
           </motion.div>
 
-          <motion.p
-            {...appear(0.3)}
-            className="max-w-xl text-[15px] md:text-base text-white/35 leading-relaxed mb-11 font-light"
-          >
+          <motion.p {...appear(0.3)} className="max-w-xl text-[15px] md:text-base text-white/35 leading-relaxed mb-11 font-light">
             I love building things that move — robots, anything with a motor and a
             microcontroller. Most nights you'll find me playing with electronics,
             debugging firmware, or picking up something new just to build it.
@@ -158,15 +151,13 @@ export default function Home() {
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
               className="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-white text-black font-semibold text-sm hover:bg-white/90 active:scale-[0.98] transition-all shadow-lg shadow-white/10"
             >
-              View Projects
-              <ArrowRight className="w-3.5 h-3.5" />
+              View Projects <ArrowRight className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => window.open("/resume.pdf", "_blank")}
               className="inline-flex items-center gap-2 h-11 px-6 rounded-xl border border-white/[0.13] text-white/65 font-medium text-sm hover:text-white hover:border-white/28 hover:bg-white/[0.05] active:scale-[0.98] transition-all"
             >
-              <Download className="w-3.5 h-3.5" />
-              Resume
+              <Download className="w-3.5 h-3.5" /> Resume
             </button>
           </motion.div>
 
@@ -203,15 +194,12 @@ export default function Home() {
                 them, and figuring out why. I'm an{" "}
                 <span className="text-white/80 font-medium">EEE undergraduate</span> at{" "}
                 <span className="text-white/80 font-medium">New Horizon College of Engineering</span>{" "}
-                (2023 – 2027), CGPA{" "}
-                <span className="text-white/85 font-semibold">9.24 / 10.0</span>.
+                (2023 – 2027), CGPA <span className="text-white/85 font-semibold">9.24 / 10.0</span>.
               </p>
               <p>
                 I spend most of my nights learning something new and building something real —
-                whether that's getting a{" "}
-                <span className="text-white/75 font-medium">ROS&nbsp;2 navigation stack</span> to
-                map a room cleanly, tuning an{" "}
-                <span className="text-white/75 font-medium">MPC controller</span> to outrun PID,
+                whether that's getting a <span className="text-white/75 font-medium">ROS&nbsp;2 navigation stack</span> to
+                map a room cleanly, tuning an <span className="text-white/75 font-medium">MPC controller</span> to outrun PID,
                 or flashing firmware onto a custom PCB at 2am.
               </p>
               <p>
@@ -278,7 +266,6 @@ export default function Home() {
             <SectionLabel>Technical Arsenal</SectionLabel>
             <SectionHeading>What I work with</SectionHeading>
           </motion.div>
-
           <div className="mt-14">
             {skillsLoading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -287,14 +274,7 @@ export default function Home() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {skills?.map((cat, idx) => (
-                  <motion.div
-                    key={cat.id}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.06, ease }}
-                    className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-white/[0.12] transition-colors"
-                  >
+                  <motion.div key={cat.id} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: idx * 0.06, ease }} className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-white/[0.12] transition-colors">
                     <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 mb-4">{cat.category}</h3>
                     <div className="flex flex-wrap gap-2">
                       {cat.items.map((skill) => (
@@ -318,7 +298,6 @@ export default function Home() {
             <SectionLabel>Work</SectionLabel>
             <SectionHeading>Featured Projects</SectionHeading>
           </motion.div>
-
           <div className="mt-14">
             {projectsLoading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -342,14 +321,11 @@ export default function Home() {
             <SectionLabel>Contact</SectionLabel>
             <SectionHeading>Let's work together</SectionHeading>
           </motion.div>
-
           <div className="mt-14 grid md:grid-cols-5 gap-12">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1, ease }} className="md:col-span-2 space-y-8">
               <p className="text-[15px] text-white/38 leading-relaxed">
-                Open to internships, research collaborations, and projects at the
-                intersection of robotics, control systems, and embedded engineering.
+                Open to internships, research collaborations, and projects at the intersection of robotics, control systems, and embedded engineering.
               </p>
-
               <div className="space-y-4">
                 {[
                   { icon: Mail, label: "Email", val: "deeeeps06@gmail.com", href: "mailto:deeeeps06@gmail.com" },
@@ -371,7 +347,6 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-
               <div className="flex gap-3">
                 <a href="https://linkedin.com/in/deepk6" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.03] text-white/38 hover:text-white/70 hover:border-white/[0.15] transition-all text-sm">
                   <Linkedin className="w-4 h-4" /> LinkedIn
@@ -381,7 +356,6 @@ export default function Home() {
                 </a>
               </div>
             </motion.div>
-
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15, ease }} className="md:col-span-3 p-8 rounded-2xl bg-white/[0.03] border border-white/[0.07]">
               <ContactForm />
             </motion.div>
