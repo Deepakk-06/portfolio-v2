@@ -88,7 +88,7 @@ async function seedDatabase() {
         description: "Deployed 2D LiDAR-based SLAM pipeline using SLAM Toolbox inside a Gazebo-simulated multi-obstacle environment. Achieved real-time occupancy grid map generation with full robot trajectory visualization and loop-closure in RViz.",
         technologies: ["ROS 2", "Gazebo", "SLAM Toolbox", "Nav2", "AMCL"],
         category: "Robotics",
-        link: "https://drive.google.com/file/d/1pskf5J4I6OG_EVLog-Po9VqRFDxYvnbR/view",
+        link: "https://drive.google.com/file/d/1IY8sFpBx5i1n0Om0xyeD5MKozIJScH4c/view?usp=sharing",
       },
       {
         title: "Human-Robot Interaction System using micro-ROS",
