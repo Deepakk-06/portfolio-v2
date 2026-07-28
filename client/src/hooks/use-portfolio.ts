@@ -6,7 +6,7 @@ export function useProjects() {
   const projects = [
     {
       id: 1,
-      title: "LiDAR-Powered Autonomous Mapping & Navigation",
+      title:  "Autonomous SLAM Robot — Physical Hardware Build",
       description: "Deployed 2D LiDAR-based SLAM pipeline using SLAM Toolbox inside a Gazebo-simulated multi-obstacle environment. Achieved real-time occupancy grid map generation with full robot trajectory visualization and loop-closure in RViz.",
       category: "Robotics",
       tags: ["ROS 2", "Gazebo", "SLAM Toolbox", "Nav2", "AMCL"],
