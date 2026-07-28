@@ -164,7 +164,7 @@ export default function Home() {
           <motion.div {...appear(0.46)}>
             <div className="flex flex-wrap gap-8 pt-8 border-t border-white/[0.07]">
               {[
-                { value: "9.24", label: "CGPA / 10.0" },
+                { value: "9.13", label: "CGPA / 10.0" },
                 { value: "6", label: "Projects Built" },
                 { value: "4", label: "Certifications" },
                 { value: "2027", label: "Graduation" },
@@ -194,7 +194,7 @@ export default function Home() {
                 them, and figuring out why. I'm an{" "}
                 <span className="text-white/80 font-medium">EEE undergraduate</span> at{" "}
                 <span className="text-white/80 font-medium">New Horizon College of Engineering</span>{" "}
-                (2023 – 2027), CGPA <span className="text-white/85 font-semibold">9.24 / 10.0</span>.
+                (2023 – 2027), CGPA <span className="text-white/85 font-semibold">9.13 / 10.0</span>.
               </p>
               <p>
                 I spend most of my nights learning something new and building something real —
@@ -243,7 +243,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2, ease }} className="md:col-span-2 grid grid-cols-2 gap-3">
               {[
-                { label: "CGPA", value: "9.24", sub: "Till 5th Semester" },
+                { label: "CGPA", value: "9.13", sub: "Till 5th Semester" },
                 { label: "Projects", value: "6+", sub: "Built & Documented" },
                 { label: "Focus", value: "ROS 2", sub: "Robotics · Control · EE" },
                 { label: "Location", value: "BLR", sub: "Bengaluru, India" },
