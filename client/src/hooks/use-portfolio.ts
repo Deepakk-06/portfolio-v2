@@ -11,7 +11,7 @@ export function useProjects() {
       category: "Robotics",
       tags: ["ROS 2", "Gazebo", "SLAM Toolbox", "Nav2", "AMCL"],
       githubUrl: null,
-      videoUrl: "https://drive.google.com/file/d/1IY8sFpBx5i1n0Om0xyeD5MKozIJScH4c/view?usp=sharing",
+      videoUrl: "https://drive.google.com/file/d/1N7pLSEQrRalwFQAxZVOc87U66A_RvV8N/view",
     },
     {
       id: 2,
