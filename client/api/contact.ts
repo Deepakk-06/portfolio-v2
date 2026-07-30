@@ -1,7 +1,27 @@
+import { pgTable, text, serial, timestamp } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
+import { drizzle } from "drizzle-orm/node-postgres";
+import pg from "pg";
 import { z } from "zod";
 import { Resend } from "resend";
-import { storage } from "../../server/storage";
-import { insertMessageSchema } from "../../shared/schema";
+
+const { Pool } = pg;
+
+const messages = pgTable("messages", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+const insertMessageSchema = createInsertSchema(messages).omit({ id: true, createdAt: true });
+
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL must be set. Did you forget to provision a database?");
+}
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const db = drizzle(pool);
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const CONTACT_RECEIVER_EMAIL = "deeeeps06@gmail.com";
@@ -14,7 +34,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     const input = insertMessageSchema.parse(req.body);
-    await storage.createMessage(input);
+    await db.insert(messages).values(input);
 
     if (resend) {
       try {
