@@ -43,7 +43,7 @@ export function ContactForm() {
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Jane Doe"
+                  placeholder="Your Name"
                   {...field}
                   className="h-11 bg-white/[0.04] border-white/[0.08] text-white/80 placeholder:text-white/20 focus:border-white/20 focus:bg-white/[0.06] transition-all rounded-xl"
                   data-testid="input-name"
@@ -64,7 +64,7 @@ export function ContactForm() {
               <FormControl>
                 <Input
                   type="email"
-                  placeholder="jane@example.com"
+                  placeholder="your.email@gmail.com"
                   {...field}
                   className="h-11 bg-white/[0.04] border-white/[0.08] text-white/80 placeholder:text-white/20 focus:border-white/20 focus:bg-white/[0.06] transition-all rounded-xl"
                   data-testid="input-email"
