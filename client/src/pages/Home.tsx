@@ -243,7 +243,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2, ease }} className="md:col-span-2 grid grid-cols-2 gap-3">
               {[
-                { label: "CGPA", value: "9.13", sub: "Till 5th Semester" },
+                { label: "CGPA", value: "9.13", sub: "3rd Year" },
                 { label: "Projects", value: "6+", sub: "Built & Documented" },
                 { label: "Focus", value: "ROS 2", sub: "Robotics · Control · EE" },
                 { label: "Location", value: "BLR", sub: "Bengaluru, India" },
