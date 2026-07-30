@@ -39,7 +39,7 @@ export default async function handler(req: any, res: any) {
     if (resend) {
       try {
         await resend.emails.send({
-          from: "Portfolio Contact <onboarding@resend.dev>",
+          from: "Deepak K <onboarding@resend.dev>",
           to: CONTACT_RECEIVER_EMAIL,
           replyTo: input.email,
           subject: `New message from ${input.name} (Portfolio Contact Form)`,
