@@ -7,7 +7,7 @@ export function useProjects() {
     {
       id: 1,
       title:  "Autonomous SLAM Robot with Real-Time Monocular Depth Vision",
-      description: "Built a fully autonomous mobile robot on a 3D-printed TurtleBot chassis running ROS2, using slam_toolbox for real-time occupancy grid mapping and localization as it explores unknown environments. Extended the system with real-time monocular depth estimation (Depth Anything V2) processed on a standard webcam feed — no LiDAR or stereo rig required. Compute is split across devices: the Raspberry Pi handles robot control and camera streaming, while depth inference runs on a separate machine with GPU acceleration for real-time performance (~40 FPS).",
+      description: "Built an autonomous ROS 2 TurtleBot with SLAM Toolbox and real-time monocular depth estimation using Depth Anything V2, achieving ~40 FPS with distributed Raspberry Pi and GPU-based processing.",
       category: "Robotics",
       tags: ["ROS 2", "SLAM Toolbox", "Monocular Depth Estimation", "Depth Anything V2", "Raspberry Pi", "Python", "OpenCV", "Real-Time Perception"],
       githubUrl: null,
