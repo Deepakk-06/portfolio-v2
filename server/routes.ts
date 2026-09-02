@@ -107,18 +107,19 @@ async function seedDatabase() {
 
     const projectsData = [
       {
-        title: "LiDAR-Powered Autonomous Mapping & Navigation",
-        description: "Deployed 2D LiDAR-based SLAM pipeline using SLAM Toolbox inside a Gazebo-simulated multi-obstacle environment. Achieved real-time occupancy grid map generation with full robot trajectory visualization and loop-closure in RViz.",
-        technologies: ["ROS 2", "Gazebo", "SLAM Toolbox", "Nav2", "AMCL"],
+        title: "Autonomous SLAM Robot with Real-Time Monocular Depth Vision",
+        description: "Built a fully autonomous mobile robot on a 3D-printed TurtleBot chassis running ROS2, using slam_toolbox for real-time occupancy grid mapping and localization as it explores unknown environments. Extended the system with real-time monocular depth estimation (Depth Anything V2) processed on a standard webcam feed — no LiDAR or stereo rig required. Compute is split across devices: the Raspberry Pi handles robot control and camera streaming, while depth inference runs on a separate machine with GPU acceleration for real-time performance (~40 FPS).",
+        technologies: ["ROS 2", "SLAM Toolbox", "Monocular Depth Estimation", "Depth Anything V2", "Raspberry Pi", "Python", "OpenCV", "Real-Time Perception"],
         category: "Robotics",
-        link: "https://drive.google.com/file/d/1IY8sFpBx5i1n0Om0xyeD5MKozIJScH4c/view?usp=sharing",
+        link: "https://drive.google.com/file/d/14VwdJNZg_wFntVe76Iic0ui4o8Z0WYAV/view?usp=sharing",
       },
       {
-        title: "Human-Robot Interaction System using micro-ROS",
-        description: "Developed real-time gesture-based robot control system integrating micro-ROS with ROS 2 Jazzy for low-latency teleoperation. Implemented gesture recognition pipeline to map human hand motions into robot velocity commands via ROS 2 topics.",
-        technologies: ["ROS 2", "ESP32", "micro-ROS", "Python"],
+        title: "Autonomous ROS 2 Hexapod",
+        description: "Developed a fully autonomous six-legged robot using ROS 2, integrating NVIDIA Jetson for high-level computation and STM32 for real-time locomotion control. Implemented LiDAR-based SLAM, autonomous navigation, gait control, IMU-based orientation, computer vision, and Jetson–STM32 serial communication.",
         category: "Robotics",
-        link: "https://drive.google.com/file/d/1vyNcxMrZcYwuTVy3O-ixH8Pn5xwWKJGN/view",
+        technologies: ["ROS 2", "Jetson", "STM32", "SLAM", "Nav2", "RPLIDAR", "OpenCV", "Robotics"],
+        category: "Robotics",
+        link: "https://drive.google.com/file/d/1c_568cxnXh-NULooI7N-SExnUtUsB6nH/view?usp=sharing",
       },
       {
         title: "Soil Grain Detection & Mapping System",
