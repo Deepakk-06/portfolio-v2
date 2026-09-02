@@ -15,7 +15,7 @@ export function useProjects() {
     },
     {
       id: 2,
-      title: "Autonomous ROS 2 Hexapod",
+      title: "Hexapod-6: Autonomous ROS 2 Legged Robot",
       description: "Developed a fully autonomous six-legged robot using ROS 2, integrating NVIDIA Jetson for high-level computation and STM32 for real-time locomotion control. Implemented LiDAR-based SLAM, autonomous navigation, gait control, IMU-based orientation, computer vision, and Jetson–STM32 serial communication.",
       category: "Robotics",
       tags: ["ROS 2", "Jetson", "STM32", "SLAM", "Nav2", "RPLIDAR", "OpenCV", "Robotics"],
