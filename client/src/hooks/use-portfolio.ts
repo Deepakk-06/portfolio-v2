@@ -11,7 +11,7 @@ export function useProjects() {
       category: "Robotics",
       tags: ["ROS 2", "SLAM Toolbox", "Monocular Depth Estimation", "Depth Anything V2", "Raspberry Pi", "Python", "OpenCV", "Real-Time Perception"],
       githubUrl: null,
-      videoUrl: "https://drive.google.com/file/d/14VwdJNZg_wFntVe76Iic0ui4o8Z0WYAV/view?usp=sharing",
+      videoUrl: "https://drive.google.com/file/d/1ot3MGC7jAUIMdgKHL1H_JMf2UZwRm2Ra/view?usp=sharing",
     },
     {
       id: 2,

@@ -111,7 +111,7 @@ async function seedDatabase() {
         description: "Built an autonomous ROS 2 TurtleBot with SLAM Toolbox and real-time monocular depth estimation using Depth Anything V2, achieving ~40 FPS with distributed Raspberry Pi and GPU-based processing.",
         technologies: ["ROS 2", "SLAM Toolbox", "Monocular Depth Estimation", "Depth Anything V2", "Raspberry Pi", "Python", "OpenCV", "Real-Time Perception"],
         category: "Robotics",
-        link: "https://drive.google.com/file/d/14VwdJNZg_wFntVe76Iic0ui4o8Z0WYAV/view?usp=sharing",
+        link: "https://drive.google.com/file/d/1ot3MGC7jAUIMdgKHL1H_JMf2UZwRm2Ra/view?usp=sharing",
       },
       {
         title: "Hexapod-6: Autonomous ROS 2 Legged Robot",
